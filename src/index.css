@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-light text-brand-navy antialiased overflow-x-hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply max-w-[1200px] mx-auto px-6 md:px-12;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-subtle hover:shadow-elevation transition-all duration-500 rounded-3xl;
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-brand;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-subtle hover:shadow-elevation transition-all duration-300;
+  }
+}
