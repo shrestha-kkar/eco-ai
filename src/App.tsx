@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  Info, Target, Rocket, Zap, Cpu, Shield,
-  MapPin, Phone, Mail, Award, Users,
+  Target, Rocket, Zap, Cpu, Shield,
+  Phone, Mail,
   LayoutDashboard, Construction, CheckCircle2,
-  Clock, Lightbulb, ExternalLink, Globe,
+  Clock, Lightbulb, Globe,
   Settings, ArrowRight, Check
 } from 'lucide-react';
 import { motion } from 'framer-motion';
