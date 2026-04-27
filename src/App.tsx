@@ -310,12 +310,15 @@ export default function App() {
             className="group"
           >
             <div className="glass-card p-10 h-full border-t-8 border-t-brand-green relative overflow-hidden">
-              <div className="absolute top-4 right-10 text-8xl font-black text-brand-navy/5 -z-10">NM</div>
-              <div className="w-20 h-20 bg-brand-navy text-white rounded-3xl flex items-center justify-center text-3xl font-black mb-8 shadow-xl shadow-brand-navy/20 group-hover:bg-brand-green transition-colors">
-                NM
+              <div className="flex gap-6 items-center mb-8">
+                <div className="w-28 h-28 rounded-3xl shadow-xl shadow-brand-navy/20 group-hover:shadow-2xl group-hover:shadow-brand-green/30 transition-all overflow-hidden flex-shrink-0">
+                  <img src="/images/team/nimesh.png" alt="Nimesh Mayank" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <h3 className="text-3xl font-black text-brand-navy mb-1">Nimesh Mayank</h3>
+                  <p className="text-[13px] font-black text-brand-green uppercase tracking-[0.3em]">Founding Partner & Infrastructure Expert</p>
+                </div>
               </div>
-              <h3 className="text-2xl font-black text-brand-navy mb-1">Nimesh Mayank</h3>
-              <p className="text-[11px] font-black text-brand-green uppercase tracking-[0.3em] mb-8">Founding Partner & Infrastructure Expert</p>
               <p className="text-brand-navy/60 text-sm leading-relaxed mb-8">
                 Former Head of TMS & ATMS Department at L&T and Adani. A strategic expert in nationwide ETC programs, tolling solutions, and maintenance software for large scale highway projects.
               </p>
@@ -345,12 +348,15 @@ export default function App() {
             className="group"
           >
             <div className="glass-card p-10 h-full border-t-8 border-t-brand-blue relative overflow-hidden px-4 md:px-10 py-12">
-              <div className="absolute top-4 right-10 text-8xl font-black text-brand-navy/5 -z-10">MT</div>
-              <div className="w-20 h-20 bg-brand-navy text-white rounded-3xl flex items-center justify-center text-3xl font-black mb-8 shadow-xl shadow-brand-navy/20 group-hover:bg-brand-blue transition-colors">
-                MT
+              <div className="flex gap-6 items-center mb-8">
+                <div className="w-28 h-28 rounded-3xl shadow-xl shadow-brand-navy/20 group-hover:shadow-2xl group-hover:shadow-brand-blue/30 transition-all overflow-hidden flex-shrink-0">
+                  <img src="/images/team/mitul.png" alt="Mitul Trivedi" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <h3 className="text-3xl font-black text-brand-navy mb-1">Mitul Trivedi</h3>
+                  <p className="text-[13px] font-black text-brand-blue uppercase tracking-[0.3em]">Techno-Operational Specialist</p>
+                </div>
               </div>
-              <h3 className="text-2xl font-black text-brand-navy mb-1">Mitul Trivedi</h3>
-              <p className="text-[11px] font-black text-brand-blue uppercase tracking-[0.3em] mb-8">Techno-Operational Specialist</p>
               <p className="text-brand-navy/60 text-sm leading-relaxed mb-8">
                 Techno-operational expert with 18+ years in TMS/ATMS solutions across Sadbhav, L&T IDPL, and IL&FS. Specialist in revenue assurance and stakeholder coordination.
               </p>
