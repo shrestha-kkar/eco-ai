@@ -112,64 +112,71 @@ export default function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-brand-navy text-white overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-brand-green/10 blur-[150px] rounded-full translate-x-[-40%] translate-y-[-40%]" />
-        <div className="page-container pt-32 pb-16 flex flex-col lg:flex-row gap-20 items-start relative z-10">
-          <div className="lg:w-1/3">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 bg-brand-green rounded-2xl flex items-center justify-center text-white shadow-lg shadow-brand-green/20">
-                <Mail size={24} />
-              </div>
-              <div>
-                <h4 className="text-2xl font-black text-white leading-none">Connect.</h4>
-                <p className="text-[10px] font-bold text-brand-green uppercase tracking-[0.3em] mt-1">Growth Partnership</p>
-              </div>
-            </div>
-            <p className="text-white/60 leading-relaxed mb-8 font-medium">
-              Ready to scale your next infrastructure or energy project? Reach out to our technical advisory team.
-            </p>
-            <div className="space-y-4">
-              <a href="mailto:ecoai.energy25@gmail.com" className="flex items-center gap-3 text-sm font-bold text-white/80 hover:text-brand-green transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center"><Mail size={16} /></div>
-                ecoai.energy25@gmail.com
-              </a>
-              <div className="flex items-center gap-3 text-sm font-bold text-white/80">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center"><ArrowRight size={16} /></div>
-                +91 99255 05952
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
+      <footer className="bg-brand-navy/20 text-brand-navy overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-brand-green/5 blur-[150px] rounded-full translate-x-[-40%] translate-y-[-40%]" />
+        
+        {/* Details Section */}
+        <div className="page-container pt-32 pb-16 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-16">
+            {/* Column 1: Connect & Address */}
             <div>
-              <h5 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-6">Ahmedabad HQ</h5>
-              <address className="not-italic text-sm font-bold text-white/80 space-y-2 leading-relaxed">
-                S-203, Shukan Mall<br />
-                Science City Road, Sola<br />
-                Ahmedabad, Gujarat
-              </address>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-brand-green rounded-2xl flex items-center justify-center text-white shadow-lg shadow-brand-green/20">
+                  <Mail size={24} />
+                </div>
+                <div>
+                  <h4 className="text-2xl font-black text-brand-navy leading-none">Connect.</h4>
+                  <p className="text-[10px] font-bold text-brand-green uppercase tracking-[0.3em] mt-1">Growth Partnership</p>
+                </div>
+              </div>
+              <p className="text-brand-navy/60 leading-relaxed mb-8 font-medium">
+                Ready to scale your next infrastructure or energy project? Reach out to our technical advisory team.
+              </p>
+              <div className="w-full">
+                <h5 className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-navy/40 mb-6">Ahmedabad HQ</h5>
+                <address className="not-italic text-sm font-bold text-brand-navy/80 space-y-2 leading-relaxed">
+                  S-203, Shukan Mall, Science City Road, Sola, Ahmedabad, Gujarat
+                </address>
+              </div>
             </div>
 
-            <div className="p-8 bg-white/10 backdrop-blur-md border border-white/10 rounded-[32px] flex flex-col justify-between">
-              <div>
-                <h5 className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 mb-4">Newsletter</h5>
-                <p className="text-sm font-bold mb-6 text-white">Stay updated on our smart city initiatives.</p>
-              </div>
-              <div className="relative">
-                <input type="email" placeholder="Email" className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-sm placeholder:text-white/20 focus:outline-none focus:border-brand-green transition-colors text-white" />
-                <button className="absolute right-2 top-2 bottom-2 w-10 bg-brand-green text-white rounded-xl flex items-center justify-center hover:scale-105 transition-transform shadow-lg shadow-brand-green/20">
-                  <ArrowRight size={18} />
-                </button>
+            {/* Column 2: Contact Details */}
+            <div className="flex flex-col justify-start">
+              <div className="space-y-4">
+                <a href="mailto:ecoai.energy25@gmail.com" className="flex items-center gap-3 text-sm font-bold text-brand-navy p-4 bg-brand-green/10 rounded-lg hover:bg-brand-green/20 transition-colors border border-brand-green/20">
+                  <div className="w-8 h-8 rounded-lg bg-brand-green/20 flex items-center justify-center"><Mail size={16} /></div>
+                  <span>ecoai.energy25@gmail.com</span>
+                </a>
+                <div className="flex items-center gap-3 text-sm font-bold text-brand-navy p-4 bg-brand-green/10 rounded-lg border border-brand-green/20">
+                  <div className="w-8 h-8 rounded-lg bg-brand-green/20 flex items-center justify-center"><ArrowRight size={16} /></div>
+                  <span>+91 99255 05952</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-white/10 py-8 page-container flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
-          <p className="text-[9px] font-bold text-white/30 uppercase tracking-[0.3em]">© 2025 ECO-AI ENERGY SOLUTION AND SERVICES LLP</p>
+        {/* Newsletter Section */}
+        <div className="page-container pb-16 relative z-10">
+          <div className="p-8 bg-brand-navy/5 backdrop-blur-md border border-brand-navy/10 rounded-[32px] flex flex-col justify-between">
+            <div>
+              <h5 className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-navy/40 mb-4">Newsletter</h5>
+              <p className="text-sm font-bold mb-6 text-brand-navy">Stay updated on our smart city initiatives.</p>
+            </div>
+            <div className="relative">
+              <input type="email" placeholder="Email" className="w-full bg-brand-navy/5 border border-brand-navy/10 rounded-2xl py-4 px-6 text-sm placeholder:text-brand-navy/30 focus:outline-none focus:border-brand-green transition-colors text-brand-navy" />
+              <button className="absolute right-2 top-2 bottom-2 w-10 bg-brand-green text-white rounded-xl flex items-center justify-center hover:scale-105 transition-transform shadow-lg shadow-brand-green/20">
+                <ArrowRight size={18} />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-brand-navy/10 py-8 page-container flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+          <p className="text-[9px] font-bold text-brand-navy/30 uppercase tracking-[0.3em]">© 2025 ECO-AI ENERGY SOLUTION AND SERVICES LLP</p>
           <div className="flex gap-8">
-            <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.2em] cursor-pointer hover:text-brand-green transition-colors">Privacy Policy</span>
-            <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.2em] cursor-pointer hover:text-brand-green transition-colors">Digital Solutions</span>
+            <span className="text-[9px] font-bold text-brand-navy/30 uppercase tracking-[0.2em] cursor-pointer hover:text-brand-green transition-colors">Privacy Policy</span>
+            <span className="text-[9px] font-bold text-brand-navy/30 uppercase tracking-[0.2em] cursor-pointer hover:text-brand-green transition-colors">Digital Solutions</span>
           </div>
         </div>
       </footer>

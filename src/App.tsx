@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Target, Rocket, Zap, Cpu, Shield,
-  LayoutDashboard, Construction, CheckCircle2,
+  LayoutDashboard, CheckCircle2,
   Lightbulb, Globe,
   Settings, ArrowRight, Check
 } from 'lucide-react';
@@ -188,8 +188,8 @@ export default function App() {
       </section>
 
       {/* Impact Section -> Narrative flow */}
-      <section id="our-why" className="section-padding bg-brand-navy text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-green/10 blur-[150px] rounded-full translate-x-[40%] translate-y-[-40%]" />
+      <section id="our-why" className="section-padding bg-brand-navy/5 text-brand-navy overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-green/5 blur-[150px] rounded-full translate-x-[40%] translate-y-[-40%]" />
 
         <div className="page-container flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2 relative">
@@ -197,7 +197,7 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative z-10 p-1 bg-white/10 backdrop-blur-3xl rounded-[40px] border border-white/20"
+              className="relative z-10 p-1 bg-brand-navy/5 backdrop-blur-3xl rounded-[40px] border border-brand-navy/10"
             >
               <div className="p-10 md:p-16">
                 <div className="space-y-12">
@@ -206,19 +206,19 @@ export default function App() {
                       <Target size={28} className="text-white" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-black mb-3 text-white">Our Vision</h3>
-                      <p className="text-lg text-white/70 italic leading-relaxed">
+                      <h3 className="text-2xl font-black mb-3 text-brand-navy">Our Vision</h3>
+                      <p className="text-lg text-brand-navy/70 italic leading-relaxed">
                         "To be the most trusted technology partner in digital transformation of industries through innovation."
                       </p>
                     </div>
                   </div>
                   <div className="flex gap-6 items-start">
-                    <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/10">
+                    <div className="w-14 h-14 rounded-2xl bg-brand-green/10 flex items-center justify-center flex-shrink-0 border border-brand-green/20">
                       <Rocket size={28} className="text-brand-green" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-black mb-3 text-white">Our Mission</h3>
-                      <p className="text-lg text-white/70 leading-relaxed font-medium">
+                      <h3 className="text-2xl font-black mb-3 text-brand-navy">Our Mission</h3>
+                      <p className="text-lg text-brand-navy/70 leading-relaxed font-medium">
                         To deliver smart, secure, and sustainable technical solutions that solve real-world problems for businesses.
                       </p>
                     </div>
@@ -235,20 +235,20 @@ export default function App() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">
+              <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight text-brand-navy">
                 Driving Change<br /><span className="text-brand-green">Every Mile.</span>
               </h2>
-              <p className="text-xl text-white/60 mb-12 leading-relaxed">
+              <p className="text-xl text-brand-navy/60 mb-12 leading-relaxed">
                 Founded with a focus on delivering robust, scalable, and secure technical solutions, we have rapidly become a go-to partner for some of India's biggest infrastructure projects.
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
                   <h4 className="text-4xl font-black text-brand-green mb-1">3.5L+</h4>
-                  <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Daily Transactions</p>
+                  <p className="text-[10px] font-bold text-brand-navy/40 uppercase tracking-widest">Daily Transactions</p>
                 </div>
                 <div>
                   <h4 className="text-4xl font-black text-brand-green mb-1">3000+</h4>
-                  <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">KM of Highways</p>
+                  <p className="text-[10px] font-bold text-brand-navy/40 uppercase tracking-widest">KM of Highways</p>
                 </div>
               </div>
             </motion.div>
@@ -347,91 +347,65 @@ export default function App() {
             <div>
               <h3 className="text-2xl font-black text-brand-navy mb-6">Completed Projects</h3>
               <div className="space-y-8">
-                {/* Large Project Highlight */}
-                <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="glass-card p-1 md:p-2 border-brand-green/10"
-            >               <div className="bg-white rounded-[24px] overflow-hidden flex flex-col lg:flex-row">
-                <div className="lg:w-1/3 bg-brand-green/8 border-r border-brand-green/10 p-10 flex flex-col justify-between">
-                  <div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/15 text-brand-green text-[9px] font-black uppercase tracking-widest mb-6">
-                      <CheckCircle2 size={12} />
-                      <span>Project Site Completed</span>
-                    </div>
-                    <h4 className="text-3xl font-black mb-4 text-brand-navy">MAHAGENCO 250 MW</h4>
-                    <p className="text-brand-navy/50 text-sm font-medium">Dondaicha, Maharashtra</p>
-                  </div>
-                  <div className="space-y-4 pt-10">
-                    <div className="flex justify-between items-end border-b border-brand-navy/10 pb-3">
-                      <span className="text-[10px] font-bold text-brand-navy/40 uppercase tracking-widest">Scope</span>
-                      <span className="text-sm font-bold text-brand-green uppercase">15.08 MW AC, DC & MMS</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="lg:w-2/3 p-10 flex flex-col justify-center gap-10">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <h5 className="text-[11px] font-black uppercase tracking-widest text-brand-navy/40">Work Executed</h5>
-                      <ul className="space-y-3">
-                        {[
-                          "Comprehensive AC/DC Electrification",
-                          "MMS Structures (Module Mounting Systems)",
-                          "Substation Connectivity",
-                          "Earthing Systems Implementation"
-                        ].map((item, i) => (
-                          <li key={i} className="flex gap-3 text-sm text-brand-navy/70 items-start">
-                            <div className="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="p-8 bg-brand-navy/5 rounded-3xl border border-brand-navy/5 flex flex-col items-center justify-center text-center">
-                      <Construction size={40} className="text-brand-navy/20 mb-4" />
-                      <p className="text-xs font-bold text-brand-navy/40 leading-relaxed uppercase tracking-widest">
-                        Critical Infrastructure<br />Project Sites
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
+                {/* NTPC Project */}
                 <div className="glass-card p-8 group">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-[9px] font-black uppercase tracking-widest mb-6">
                     <CheckCircle2 size={12} />
                     <span>Project Site Completed</span>
                   </div>
-                  <h4 className="text-xl font-black text-brand-navy mb-2">NTPC 320 MW Unit</h4>
-                  <p className="text-xs font-bold text-brand-navy/40 mb-6 uppercase tracking-widest">Bhainsra, Pokaran, Jaisalmer</p>
-                  <p className="text-sm text-brand-navy/60 leading-relaxed">2 MW DC & MMS Work</p>
+                  <h4 className="text-xl font-black text-brand-navy mb-2">NTPC 320 MW Project</h4>
+                  <p className="text-xs font-bold text-brand-navy/40 mb-4 uppercase tracking-widest">Bhainsra, Pokaran, Jaisalmer, Rajasthan</p>
+                  <p className="text-sm text-brand-navy/60 leading-relaxed mb-4">DC Electrification Work</p>
+                  <div className="flex items-center gap-2 text-xs font-bold text-brand-green">
+                    <div className="w-1.5 h-1.5 rounded-full bg-brand-green" />
+                    <span>Scope: 2 Mega Watt DC & MMS Work</span>
+                  </div>
+                </div>
+
+                {/* MAHAGENCO Project */}
+                <div className="glass-card p-8 group">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-[9px] font-black uppercase tracking-widest mb-6">
+                    <CheckCircle2 size={12} />
+                    <span>Project Site Completed</span>
+                  </div>
+                  <h4 className="text-xl font-black text-brand-navy mb-2">MAHAGENCO 250 MW Project</h4>
+                  <p className="text-xs font-bold text-brand-navy/40 mb-4 uppercase tracking-widest">Dondaicha, Maharashtra</p>
+                  <p className="text-sm text-brand-navy/60 leading-relaxed mb-4">DC/AC Electrification, MMS and Earthing Work</p>
+                  <div className="flex items-center gap-2 text-xs font-bold text-brand-green">
+                    <div className="w-1.5 h-1.5 rounded-full bg-brand-green" />
+                    <span>Scope: 10 Mega Watt AC, DC & MMS Work</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div>
               <h3 className="text-2xl font-black text-brand-navy mb-6">Ongoing Projects</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-8">
+                {/* MAHAGENCO Ongoing */}
                 <div className="glass-card p-8 group">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-[9px] font-black uppercase tracking-widest mb-6">
                     <Rocket size={12} />
-                    <span>Innovation Group</span>
+                    <span>In Progress</span>
                   </div>
-                  <h4 className="text-xl font-black text-brand-navy mb-2">Solar AI Solution</h4>
-                  <p className="text-xs font-bold text-brand-navy/40 mb-6 uppercase tracking-widest">Research &amp; POC</p>
-                  <p className="text-sm text-brand-navy/60 leading-relaxed">Image Processing based Solar Plant Maintenance Solution for large utility plants.</p>
+                  <h4 className="text-xl font-black text-brand-navy mb-2">MAHAGENCO 250 MW Project</h4>
+                  <p className="text-xs font-bold text-brand-navy/40 mb-4 uppercase tracking-widest">Dondaicha, Maharashtra</p>
+                  <p className="text-sm text-brand-navy/60 leading-relaxed mb-4">DC/AC Electrification, MMS and Earthing Work</p>
+                  <div className="flex items-center gap-2 text-xs font-bold text-brand-blue">
+                    <div className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
+                    <span>Scope: 10 Mega Watt AC, DC, MMS & Earthing Work</span>
+                  </div>
                 </div>
 
+                {/* POC Project */}
                 <div className="glass-card p-8 group">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-[9px] font-black uppercase tracking-widest mb-6">
-                    <Globe size={12} />
-                    <span>Regional Sites</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-[9px] font-black uppercase tracking-widest mb-6">
+                    <Rocket size={12} />
+                    <span>POC/R&D</span>
                   </div>
-                  <h4 className="text-xl font-black text-brand-navy mb-2">Multi-State Operations</h4>
-                  <p className="text-xs font-bold text-brand-navy/40 mb-6 uppercase tracking-widest">Maharashtra · Rajasthan · Gujarat</p>
-                  <p className="text-sm text-brand-navy/60 leading-relaxed">Expanding project footprint across key energy infrastructure corridors in western India.</p>
+                  <h4 className="text-xl font-black text-brand-navy mb-2">Solar AI Solution</h4>
+                  <p className="text-xs font-bold text-brand-navy/40 mb-4 uppercase tracking-widest">Research & Proof of Concept</p>
+                  <p className="text-sm text-brand-navy/60 leading-relaxed">Image Processing Based Solar Plant Maintenance Solution.</p>
                 </div>
               </div>
             </div>

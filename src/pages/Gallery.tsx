@@ -5,48 +5,140 @@ import { Play, X, Image, Video } from 'lucide-react';
 interface GalleryItem {
   id: string;
   title: string;
-  category: 'completed' | 'ongoing';
   type: 'image' | 'video';
   src: string;
   thumbnail?: string;
   description: string;
 }
 
-// Sample gallery data - update with your actual media
+// Gallery data - all project media
 const galleryItems: GalleryItem[] = [
   {
     id: '1',
-    title: 'MAHAGENCO 250 MW - Solar Array Installation',
-    category: 'completed',
+    title: '',
     type: 'image',
-    src: '/media/projects/completed/mahagenco-solar.jpg',
-    description: 'Complete solar array setup at MAHAGENCO facility',
+    src: '/media/projects/image1.jpeg',
+    description: '',
   },
   {
     id: '2',
-    title: 'MAHAGENCO - Installation Process',
-    category: 'completed',
-    type: 'video',
-    src: '/media/projects/completed/mahagenco-installation.mp4',
-    thumbnail: '/media/projects/completed/mahagenco-installation-thumb.jpg',
-    description: 'Time-lapse of installation process',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image2.jpeg',
+    description: '',
   },
   {
     id: '3',
-    title: 'NTPC Project Site - Progress Update',
-    category: 'ongoing',
+    title: '',
     type: 'image',
-    src: '/media/projects/ongoing/ntpc-site.jpg',
-    description: 'Current progress at NTPC 320 MW facility',
+    src: '/media/projects/image3.jpeg',
+    description: '',
   },
   {
     id: '4',
-    title: 'Team at Work - Field Operations',
-    category: 'ongoing',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image4.jpeg',
+    description: '',
+  },
+  {
+    id: '5',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image5.jpeg',
+    description: '',
+  },
+  {
+    id: '6',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image6.jpeg',
+    description: '',
+  },
+  {
+    id: '7',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image7.jpeg',
+    description: '',
+  },
+  {
+    id: '8',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image8.jpeg',
+    description: '',
+  },
+  {
+    id: '9',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image9.jpeg',
+    description: '',
+  },
+  {
+    id: '10',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image10.jpeg',
+    description: '',
+  },
+  {
+    id: '11',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image11.jpeg',
+    description: '',
+  },
+  {
+    id: '12',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image12.jpeg',
+    description: '',
+  },
+  {
+    id: '13',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image13.jpeg',
+    description: '',
+  },
+  {
+    id: '14',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image14.jpeg',
+    description: '',
+  },
+  {
+    id: '15',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image15.jpeg',
+    description: '',
+  },
+  {
+    id: '16',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image16.jpeg',
+    description: '',
+  },
+  {
+    id: '17',
+    title: '',
+    type: 'image',
+    src: '/media/projects/image17.jpeg',
+    description: '',
+  },
+  {
+    id: '18',
+    title: '',
     type: 'video',
-    src: '/media/projects/ongoing/team-operations.mp4',
-    thumbnail: '/media/projects/ongoing/team-operations-thumb.jpg',
-    description: 'Our technical team during field operations',
+    src: '/media/projects/video1.mp4',
+    thumbnail: '/media/projects/video1-thumb.jpeg',
+    description: '',
   },
 ];
 
@@ -56,24 +148,19 @@ interface SelectedItem extends GalleryItem {
 
 export default function Gallery() {
   const [selectedItem, setSelectedItem] = useState<SelectedItem | null>(null);
-  const [filter, setFilter] = useState<'all' | 'completed' | 'ongoing'>('all');
-
-  const filteredItems = galleryItems.filter(
-    item => filter === 'all' || item.category === filter
-  );
 
   const handlePrevious = () => {
     if (!selectedItem) return;
-    const currentIndex = filteredItems.findIndex(item => item.id === selectedItem.id);
-    const newIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
-    setSelectedItem({ ...filteredItems[newIndex], index: newIndex });
+    const currentIndex = galleryItems.findIndex(item => item.id === selectedItem.id);
+    const newIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    setSelectedItem({ ...galleryItems[newIndex], index: newIndex });
   };
 
   const handleNext = () => {
     if (!selectedItem) return;
-    const currentIndex = filteredItems.findIndex(item => item.id === selectedItem.id);
-    const newIndex = (currentIndex + 1) % filteredItems.length;
-    setSelectedItem({ ...filteredItems[newIndex], index: newIndex });
+    const currentIndex = galleryItems.findIndex(item => item.id === selectedItem.id);
+    const newIndex = (currentIndex + 1) % galleryItems.length;
+    setSelectedItem({ ...galleryItems[newIndex], index: newIndex });
   };
 
   return (
@@ -112,29 +199,10 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="page-container mb-16">
-        <div className="flex gap-4 flex-wrap">
-          {(['all', 'completed', 'ongoing'] as const).map(type => (
-            <button
-              key={type}
-              onClick={() => setFilter(type)}
-              className={`px-6 py-3 rounded-xl font-bold text-sm uppercase tracking-[0.1em] transition-all ${
-                filter === type
-                  ? 'bg-brand-green text-white shadow-lg shadow-brand-green/30'
-                  : 'bg-white border border-brand-navy/10 text-brand-navy/60 hover:border-brand-green'
-              }`}
-            >
-              {type === 'all' ? 'All Projects' : type === 'completed' ? 'Completed' : 'Ongoing'}
-            </button>
-          ))}
-        </div>
-      </section>
-
       {/* Gallery Grid */}
       <section className="page-container mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item, index) => (
+          {galleryItems.map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
@@ -157,20 +225,18 @@ export default function Gallery() {
                   />
                 ) : (
                   <>
+                    <div className="w-full h-full bg-gradient-to-br from-brand-blue/20 to-brand-green/20 flex items-center justify-center">
+                      <Video size={48} className="text-brand-navy/30" />
+                    </div>
                     {item.thumbnail && (
                       <img
                         src={item.thumbnail}
                         alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={(e) => {
                           (e.target as HTMLImageElement).style.display = 'none';
                         }}
                       />
-                    )}
-                    {!item.thumbnail && (
-                      <div className="w-full h-full bg-gradient-to-br from-brand-blue/20 to-brand-green/20 flex items-center justify-center">
-                        <Video size={48} className="text-brand-navy/30" />
-                      </div>
                     )}
                   </>
                 )}
@@ -186,15 +252,6 @@ export default function Gallery() {
 
                 {/* Category Badge */}
                 <div className="absolute top-4 right-4">
-                  <span
-                    className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${
-                      item.category === 'completed'
-                        ? 'bg-brand-green/90 text-white'
-                        : 'bg-brand-blue/90 text-white'
-                    }`}
-                  >
-                    {item.category}
-                  </span>
                 </div>
               </div>
 
@@ -271,15 +328,6 @@ export default function Gallery() {
                   <h2 className="text-2xl font-black text-brand-navy mb-2">{selectedItem.title}</h2>
                   <p className="text-brand-navy/60">{selectedItem.description}</p>
                 </div>
-                <span
-                  className={`px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest whitespace-nowrap ml-4 ${
-                    selectedItem.category === 'completed'
-                      ? 'bg-brand-green/15 text-brand-green'
-                      : 'bg-brand-blue/15 text-brand-blue'
-                  }`}
-                >
-                  {selectedItem.category}
-                </span>
               </div>
 
               {/* Navigation */}
@@ -292,7 +340,7 @@ export default function Gallery() {
                 </button>
                 <div className="flex-1" />
                 <span className="text-xs font-bold text-brand-navy/60 self-center">
-                  {selectedItem.index + 1} / {filteredItems.length}
+                  {selectedItem.index + 1} / {galleryItems.length}
                 </span>
                 <button
                   onClick={handleNext}
