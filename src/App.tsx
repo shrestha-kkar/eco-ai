@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from './assets/logo.png';
 import {
   Target, Rocket, Zap, Cpu, Shield,
   LayoutDashboard, CheckCircle2,
@@ -84,20 +86,47 @@ const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; desc: string
 
 export default function App() {
   return (
-    <div className="pb-20">
-      {/* Remove the navigation and footer - they're now in Layout component */}
+    <div className="min-h-screen bg-brand-light font-sans selection:bg-brand-green selection:text-white pb-20 overflow-x-hidden">
+
+      {/* Dynamic Background Elements */}
+      <div className="fixed inset-0 -z-10 pointer-events-none opacity-50">
+        <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-brand-green/5 blur-[150px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[800px] h-[800px] bg-brand-blue/5 blur-[150px] rounded-full" />
+      </div>
+
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur-xl border-b border-brand-navy/5 py-4 px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto flex justify-between items-center">
+          <div className="flex items-center gap-4 group cursor-pointer">
+            <img src={logo} alt="Eco AI Logo" className="w-10 h-10 object-contain rounded-xl shadow-xl shadow-brand-navy/10" />
+            <div>
+              <h1 className="text-lg font-black text-brand-navy leading-none tracking-tight">ECO-AI</h1>
+              <span className="text-[9px] font-bold text-brand-green uppercase tracking-[0.3em]">Energy Solutions</span>
+            </div>
+          </div>
+
+          <div className="hidden lg:flex items-center gap-10">
+            {['Expertise', 'Our Why', 'Team', 'Projects'].map(item => (
+              <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-xs font-bold text-brand-navy/40 hover:text-brand-navy transition-colors uppercase tracking-[0.2em]">
+                {item}
+              </a>
+            ))}
+            <Link to="/gallery" className="text-xs font-bold text-brand-navy/40 hover:text-brand-navy transition-colors uppercase tracking-[0.2em]">
+              Gallery
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <a href="#contact" className="px-6 py-2.5 bg-brand-navy text-white text-[11px] font-black uppercase tracking-[0.15em] rounded-xl hover:bg-brand-green transition-all transform hover:scale-105 active:scale-95 shadow-2xl shadow-brand-navy/20">
+              Start Project
+            </a>
+          </div>
+        </div>
+      </nav>
 
       {/* Hero Section */}
       <section className="pt-32 pb-24 page-container relative">
         <div className="max-w-4xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-green/20 text-brand-green text-[10px] font-black uppercase tracking-[0.2em] mb-10 shadow-sm"
-          >
-            <Globe size={14} />
-            <span>Founded in 2025 • Ahmedabad, Gujarat</span>
-          </motion.div>
           <motion.h1
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -116,14 +145,22 @@ export default function App() {
             ECO-AI ENERGY SOLUTION AND SERVICES LLP delivers robust, scalable, and secure technical solutions for the energy, education, and infrastructure sectors.
           </motion.p>
           <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-green/20 text-brand-green text-[10px] font-black uppercase tracking-[0.2em] mb-10 shadow-sm"
+          >
+            <Globe size={14} />
+            <span>Founded in 2025 • Ahmedabad, Gujarat</span>
+          </motion.div>
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
             className="flex flex-wrap gap-6"
           >
-            <button className="px-10 py-5 bg-gradient-brand text-white text-[12px] font-black uppercase tracking-widest rounded-2xl shadow-[0_20px_40px_-10px_rgba(16,185,129,0.3)] hover:scale-105 transition-transform flex items-center gap-3">
+            <a href="#projects" className="px-10 py-5 bg-gradient-brand text-white text-[12px] font-black uppercase tracking-widest rounded-2xl shadow-[0_20px_40px_-10px_rgba(16,185,129,0.3)] hover:scale-105 transition-transform flex items-center gap-3">
               View Capabilities <ArrowRight size={18} />
-            </button>
+            </a>
             <div className="flex items-center gap-4">
               <div className="flex -space-x-3">
                 {[1, 2, 3].map(i => (

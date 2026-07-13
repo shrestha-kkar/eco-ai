@@ -96,12 +96,13 @@ export default function Layout() {
           </div>
 
           <div className="flex items-center gap-6">
-            <a
-              href="mailto:ecoai.energy25@gmail.com"
+            <button
+              type="button"
+              onClick={() => handleSectionClick('#contact')}
               className="px-6 py-2.5 bg-brand-navy text-white text-[11px] font-black uppercase tracking-[0.15em] rounded-xl hover:bg-brand-green transition-all transform hover:scale-105 active:scale-95 shadow-2xl shadow-brand-navy/20"
             >
               Start Project
-            </a>
+            </button>
           </div>
         </div>
       </nav>
@@ -112,7 +113,7 @@ export default function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-brand-navy/20 text-brand-navy overflow-hidden relative">
+      <footer id="contact" className="bg-brand-navy/20 text-brand-navy overflow-hidden relative">
         <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-brand-green/5 blur-[150px] rounded-full translate-x-[-40%] translate-y-[-40%]" />
         
         {/* Details Section */}
@@ -156,15 +157,15 @@ export default function Layout() {
           </div>
         </div>
 
-        {/* Newsletter Section */}
+        {/* Contact Section */}
         <div className="page-container pb-16 relative z-10">
           <div className="p-8 bg-brand-navy/5 backdrop-blur-md border border-brand-navy/10 rounded-[32px] flex flex-col justify-between">
             <div>
-              <h5 className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-navy/40 mb-4">Newsletter</h5>
-              <p className="text-sm font-bold mb-6 text-brand-navy">Stay updated on our smart city initiatives.</p>
+              <h5 className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-navy/40 mb-4">Contact</h5>
+              <p className="text-sm font-bold mb-6 text-brand-navy">Share your project details and best contact email, and our team will respond promptly.</p>
             </div>
             <div className="relative">
-              <input type="email" placeholder="Email" className="w-full bg-brand-navy/5 border border-brand-navy/10 rounded-2xl py-4 px-6 text-sm placeholder:text-brand-navy/30 focus:outline-none focus:border-brand-green transition-colors text-brand-navy" />
+              <input type="email" placeholder="Your email address" className="w-full bg-brand-navy/5 border border-brand-navy/10 rounded-2xl py-4 px-6 text-sm placeholder:text-brand-navy/30 focus:outline-none focus:border-brand-green transition-colors text-brand-navy" />
               <button className="absolute right-2 top-2 bottom-2 w-10 bg-brand-green text-white rounded-xl flex items-center justify-center hover:scale-105 transition-transform shadow-lg shadow-brand-green/20">
                 <ArrowRight size={18} />
               </button>

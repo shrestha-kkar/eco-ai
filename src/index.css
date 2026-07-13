@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-brand-light text-brand-navy antialiased overflow-x-hidden;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
