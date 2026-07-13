@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { Mail, ArrowRight } from 'lucide-react';
 import logo from '../assets/logo.png';
@@ -8,6 +8,14 @@ export default function Layout() {
   const navigate = useNavigate();
   const isGallery = location.pathname === '/gallery';
   const isHome = location.pathname === '/';
+  const CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbynCIsDUaWfw9munnpwHHxSCwcTk7H3bcMchh4gNXjxP9iAE1pw1mXY3hQr8HbaK-Zw/exec';
+
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [statusMessage, setStatusMessage] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
   const navItems = [
     { label: 'Home', hash: '#top' },
@@ -42,6 +50,45 @@ export default function Layout() {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    }
+  };
+
+  const handleContactSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitting(true);
+    setStatusMessage('');
+
+    try {
+      const formData = new URLSearchParams();
+      formData.append('name', name);
+      formData.append('phone', phone);
+      formData.append('email', email);
+      formData.append('message', message);
+
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error('Submit failed');
+      }
+
+      const result = await response.json();
+      if (!result.success) {
+        throw new Error(result.error || 'Submit failed');
+      }
+
+      setStatusMessage('Your inquiry was sent successfully.');
+      setName('');
+      setPhone('');
+      setEmail('');
+      setMessage('');
+    } catch (error) {
+      setStatusMessage('Failed to send inquiry. Please try again later.');
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -156,18 +203,63 @@ export default function Layout() {
 
         {/* Contact Section */}
         <div className="page-container pb-16 relative z-10">
-          <div className="p-8 bg-brand-navy/5 backdrop-blur-md border border-brand-navy/10 rounded-[32px] flex flex-col justify-between">
+          <form
+            className="p-8 bg-brand-navy/5 backdrop-blur-md border border-brand-navy/10 rounded-[32px] grid gap-6"
+            onSubmit={handleContactSubmit}
+          >
             <div>
               <h5 className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-navy/40 mb-4">Contact</h5>
-              <p className="text-sm font-bold mb-6 text-brand-navy">Share your project details and best contact email, and our team will respond promptly.</p>
+              <p className="text-sm font-bold mb-6 text-brand-navy">Share your project details and our team will contact you shortly.</p>
             </div>
-            <div className="relative">
-              <input type="email" placeholder="Your email address" className="w-full bg-brand-navy/5 border border-brand-navy/10 rounded-2xl py-4 px-6 text-sm placeholder:text-brand-navy/30 focus:outline-none focus:border-brand-green transition-colors text-brand-navy" />
-              <button className="absolute right-2 top-2 bottom-2 w-10 bg-brand-green text-white rounded-xl flex items-center justify-center hover:scale-105 transition-transform shadow-lg shadow-brand-green/20">
-                <ArrowRight size={18} />
-              </button>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input
+                value={name}
+                onChange={event => setName(event.target.value)}
+                name="name"
+                type="text"
+                placeholder="Your name"
+                required
+                className="w-full bg-brand-navy/5 border border-brand-navy/10 rounded-2xl py-4 px-6 text-sm placeholder:text-brand-navy/30 focus:outline-none focus:border-brand-green transition-colors text-brand-navy"
+              />
+              <input
+                value={phone}
+                onChange={event => setPhone(event.target.value)}
+                name="phone"
+                type="tel"
+                placeholder="Phone number"
+                required
+                className="w-full bg-brand-navy/5 border border-brand-navy/10 rounded-2xl py-4 px-6 text-sm placeholder:text-brand-navy/30 focus:outline-none focus:border-brand-green transition-colors text-brand-navy"
+              />
+              <input
+                value={email}
+                onChange={event => setEmail(event.target.value)}
+                name="email"
+                type="email"
+                placeholder="Email address"
+                required
+                className="w-full bg-brand-navy/5 border border-brand-navy/10 rounded-2xl py-4 px-6 text-sm placeholder:text-brand-navy/30 focus:outline-none focus:border-brand-green transition-colors text-brand-navy"
+              />
             </div>
-          </div>
+            <textarea
+              value={message}
+              onChange={event => setMessage(event.target.value)}
+              name="message"
+              rows={5}
+              placeholder="Your message"
+              required
+              className="w-full bg-brand-navy/5 border border-brand-navy/10 rounded-3xl py-4 px-6 text-sm placeholder:text-brand-navy/30 focus:outline-none focus:border-brand-green transition-colors text-brand-navy resize-none"
+            />
+            {statusMessage && (
+              <p className="text-sm font-medium text-brand-navy/80">{statusMessage}</p>
+            )}
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-fit px-8 py-4 bg-brand-green text-white font-black uppercase tracking-[0.15em] rounded-2xl hover:bg-brand-green/90 transition-colors shadow-lg shadow-brand-green/20 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {submitting ? 'Sending...' : 'Submit Inquiry'}
+            </button>
+          </form>
         </div>
 
         <div className="border-t border-brand-navy/10 py-8 page-container flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
