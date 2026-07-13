@@ -55,6 +55,16 @@ export default function Layout() {
 
   const handleContactSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!name.trim()) {
+      setStatusMessage('Please enter your name.');
+      return;
+    }
+    if (!phone.trim() && !email.trim()) {
+      setStatusMessage('Please provide a phone number or email address.');
+      return;
+    }
+
     setSubmitting(true);
     setStatusMessage('');
 
@@ -227,7 +237,6 @@ export default function Layout() {
                 name="phone"
                 type="tel"
                 placeholder="Phone number"
-                required
                 className="w-full bg-brand-navy/5 border border-brand-navy/10 rounded-2xl py-4 px-6 text-sm placeholder:text-brand-navy/30 focus:outline-none focus:border-brand-green transition-colors text-brand-navy"
               />
               <input
@@ -236,7 +245,6 @@ export default function Layout() {
                 name="email"
                 type="email"
                 placeholder="Email address"
-                required
                 className="w-full bg-brand-navy/5 border border-brand-navy/10 rounded-2xl py-4 px-6 text-sm placeholder:text-brand-navy/30 focus:outline-none focus:border-brand-green transition-colors text-brand-navy"
               />
             </div>
@@ -246,7 +254,6 @@ export default function Layout() {
               name="message"
               rows={5}
               placeholder="Your message"
-              required
               className="w-full bg-brand-navy/5 border border-brand-navy/10 rounded-3xl py-4 px-6 text-sm placeholder:text-brand-navy/30 focus:outline-none focus:border-brand-green transition-colors text-brand-navy resize-none"
             />
             {statusMessage && (
