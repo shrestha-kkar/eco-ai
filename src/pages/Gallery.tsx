@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Play, X, Image, Video } from 'lucide-react';
 
@@ -148,6 +148,10 @@ interface SelectedItem extends GalleryItem {
 
 export default function Gallery() {
   const [selectedItem, setSelectedItem] = useState<SelectedItem | null>(null);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, []);
 
   const handlePrevious = () => {
     if (!selectedItem) return;

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
-import { Zap, Mail, ArrowRight } from 'lucide-react';
+import { Mail, ArrowRight } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 export default function Layout() {
   const location = useLocation();
@@ -9,6 +10,7 @@ export default function Layout() {
   const isHome = location.pathname === '/';
 
   const navItems = [
+    { label: 'Home', hash: '#top' },
     { label: 'Expertise', hash: '#expertise' },
     { label: 'Our Why', hash: '#our-why' },
     { label: 'Team', hash: '#team' },
@@ -55,12 +57,7 @@ export default function Layout() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur-xl border-b border-brand-navy/5 py-4 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto flex justify-between items-center">
           <Link to="/" className="flex items-center gap-4 group cursor-pointer">
-            <div className="relative">
-              <div className="w-10 h-10 bg-brand-navy rounded-xl flex items-center justify-center text-white shadow-xl shadow-brand-navy/20 group-hover:bg-brand-green transition-colors overflow-hidden">
-                <Zap size={22} className="relative z-10" />
-                <div className="absolute inset-0 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-            </div>
+            <img src={logo} alt="Eco AI Logo" className="w-10 h-10 object-contain rounded-xl shadow-xl shadow-brand-navy/10" />
             <div>
               <h1 className="text-lg font-black text-brand-navy leading-none tracking-tight">ECO-AI</h1>
               <span className="text-[9px] font-bold text-brand-green uppercase tracking-[0.3em]">Energy Solutions</span>
