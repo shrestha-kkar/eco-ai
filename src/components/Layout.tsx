@@ -6,7 +6,6 @@ import logo from '../assets/logo.png';
 export default function Layout() {
   const location = useLocation();
   const navigate = useNavigate();
-  const isGallery = location.pathname === '/gallery';
   const isHome = location.pathname === '/';
   const CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbynCIsDUaWfw9munnpwHHxSCwcTk7H3bcMchh4gNXjxP9iAE1pw1mXY3hQr8HbaK-Zw/exec';
 
@@ -23,7 +22,6 @@ export default function Layout() {
     { label: 'Our Why', hash: '#our-why' },
     { label: 'Team', hash: '#team' },
     { label: 'Projects', hash: '#projects' },
-    { label: 'Gallery', href: '/gallery' },
   ];
 
   // Handle scrolling to section after navigation
@@ -41,8 +39,8 @@ export default function Layout() {
 
   // Handle navigation to sections
   const handleSectionClick = (hash: string) => {
-    if (isGallery) {
-      // If on gallery, navigate home first, then scroll
+    if (!isHome) {
+      // If not on home, navigate to home+hash so the section can be scrolled to
       navigate('/' + hash);
     } else {
       // If already on home, just scroll
@@ -63,6 +61,15 @@ export default function Layout() {
     if (!phone.trim() && !email.trim()) {
       setStatusMessage('Please provide a phone number or email address.');
       return;
+    }
+
+    // Validate phone digit count (allow international formats) if phone provided
+    const digitsOnly = phone.replace(/\D/g, '');
+    if (digitsOnly) {
+      if (digitsOnly.length < 10 || digitsOnly.length > 15) {
+        setStatusMessage('Please enter a valid phone number (10–15 digits).');
+        return;
+      }
     }
 
     setSubmitting(true);
@@ -127,11 +134,7 @@ export default function Layout() {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className={`text-xs font-bold transition-colors uppercase tracking-[0.2em] ${
-                    isGallery && item.label === 'Gallery'
-                      ? 'text-brand-navy'
-                      : 'text-brand-navy/40 hover:text-brand-navy'
-                  }`}
+                  className="text-xs font-bold transition-colors uppercase tracking-[0.2em] text-brand-navy/40 hover:text-brand-navy"
                 >
                   {item.label}
                 </Link>
@@ -139,9 +142,7 @@ export default function Layout() {
                 <button
                   key={item.label}
                   onClick={() => handleSectionClick(item.hash)}
-                  className={`text-xs font-bold transition-colors uppercase tracking-[0.2em] cursor-pointer bg-transparent border-none ${
-                    isHome ? 'text-brand-navy/40 hover:text-brand-navy' : 'text-brand-navy/40 hover:text-brand-navy'
-                  }`}
+                  className="text-xs font-bold transition-colors uppercase tracking-[0.2em] cursor-pointer bg-transparent border-none text-brand-navy/40 hover:text-brand-navy"
                 >
                   {item.label}
                 </button>

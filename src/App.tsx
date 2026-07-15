@@ -73,10 +73,10 @@ const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; desc: string
     <p className="text-brand-navy/60 text-sm leading-relaxed mb-6">
       {desc}
     </p>
-    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brand-green opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
+    {/* <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brand-green opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
       <span>Learn more</span>
       <ArrowRight size={14} />
-    </div>
+    </div> */}
   </motion.div>
 );
 
@@ -113,28 +113,6 @@ export default function App() {
           >
             <Globe size={14} />
             <span>Founded in 2025 • Ahmedabad, Gujarat</span>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-wrap gap-6"
-          >
-            <a href="#projects" className="px-10 py-5 bg-gradient-brand text-white text-[12px] font-black uppercase tracking-widest rounded-2xl shadow-[0_20px_40px_-10px_rgba(16,185,129,0.3)] hover:scale-105 transition-transform flex items-center gap-3">
-              View Capabilities <ArrowRight size={18} />
-            </a>
-            <div className="flex items-center gap-4">
-              <div className="flex -space-x-3">
-                {[1, 2, 3].map(i => (
-                  <div key={i} className="w-12 h-12 rounded-2xl bg-white border-4 border-brand-light flex items-center justify-center shadow-lg">
-                    <CheckCircle2 size={18} className="text-brand-green" />
-                  </div>
-                ))}
-              </div>
-              <p className="text-[10px] font-bold text-brand-navy/40 uppercase tracking-[0.2em] leading-tight">
-                50+ Projects<br />Delivered Nationwide
-              </p>
-            </div>
           </motion.div>
         </div>
       </section>
