@@ -19,16 +19,13 @@ export default function App() {
         <h1 className="text-2xl md:text-3xl font-black text-brand-navy leading-tight tracking-tight mb-1">
           ECO-AI ENERGY SOLUTION AND SERVICES LLP
         </h1>
-        <p className="text-[10px] font-bold text-brand-green uppercase tracking-[0.3em] mb-10">
-          Energy Solutions
-        </p>
 
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-green/20 text-brand-green text-[10px] font-black uppercase tracking-[0.2em] mb-10 shadow-sm">
           <span>Website Under Construction</span>
         </div>
 
         <p className="text-brand-navy/60 leading-relaxed font-medium mb-12">
-          We're building something new. In the meantime, reach out to us directly.
+          Our website is launching soon. In the meantime, feel free to reach out to us directly.
         </p>
 
         <div className="glass-card rounded-3xl p-8 grid gap-4 text-left">
