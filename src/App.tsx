@@ -251,7 +251,7 @@ export default function App() {
             <div className="glass-card p-10 h-full border-t-8 border-t-brand-green relative overflow-hidden">
               <div className="flex gap-6 items-center mb-8">
                 <div className="w-28 h-28 rounded-3xl shadow-xl shadow-brand-navy/20 group-hover:shadow-2xl group-hover:shadow-brand-green/30 transition-all overflow-hidden flex-shrink-0">
-                  <img src="/images/team/nimesh.png" alt="Nimesh Mayank" className="w-full h-full object-cover" />
+                  <img src="/media/team/nimesh.png" alt="Nimesh Mayank" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-3xl font-black text-brand-navy mb-1">Nimesh Mayank</h3>
@@ -289,7 +289,7 @@ export default function App() {
             <div className="glass-card p-10 h-full border-t-8 border-t-brand-blue relative overflow-hidden px-4 md:px-10 py-12">
               <div className="flex gap-6 items-center mb-8">
                 <div className="w-28 h-28 rounded-3xl shadow-xl shadow-brand-navy/20 group-hover:shadow-2xl group-hover:shadow-brand-blue/30 transition-all overflow-hidden flex-shrink-0">
-                  <img src="/images/team/mitul.png" alt="Mitul Trivedi" className="w-full h-full object-cover" />
+                  <img src="/media/team/mitul.png" alt="Mitul Trivedi" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-3xl font-black text-brand-navy mb-1">Mitul Trivedi</h3>
@@ -319,74 +319,30 @@ export default function App() {
             title="Real-World Impact Sites"
             description="Our site teams operate across India, delivering high-stakes energy and traffic infrastructure."
           />
-
-          <div className="space-y-12">
-            <div>
-              <h3 className="text-2xl font-black text-brand-navy mb-6">Completed Projects</h3>
-              <div className="space-y-8">
-                {/* NTPC Project */}
-                <div className="glass-card p-8 group">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-[9px] font-black uppercase tracking-widest mb-6">
-                    <CheckCircle2 size={12} />
-                    <span>Project Site Completed</span>
-                  </div>
-                  <h4 className="text-xl font-black text-brand-navy mb-2">NTPC 320 MW Project</h4>
-                  <p className="text-xs font-bold text-brand-navy/40 mb-4 uppercase tracking-widest">Bhainsra, Pokaran, Jaisalmer, Rajasthan</p>
-                  <p className="text-sm text-brand-navy/60 leading-relaxed mb-4">DC Electrification Work</p>
-                  <div className="flex items-center gap-2 text-xs font-bold text-brand-green">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-green" />
-                    <span>Scope: 2 Mega Watt DC & MMS Work</span>
-                  </div>
-                </div>
-
-                {/* MAHAGENCO Project */}
-                <div className="glass-card p-8 group">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-[9px] font-black uppercase tracking-widest mb-6">
-                    <CheckCircle2 size={12} />
-                    <span>Project Site Completed</span>
-                  </div>
-                  <h4 className="text-xl font-black text-brand-navy mb-2">MAHAGENCO 250 MW Project</h4>
-                  <p className="text-xs font-bold text-brand-navy/40 mb-4 uppercase tracking-widest">Dondaicha, Maharashtra</p>
-                  <p className="text-sm text-brand-navy/60 leading-relaxed mb-4">DC/AC Electrification, MMS and Earthing Work</p>
-                  <div className="flex items-center gap-2 text-xs font-bold text-brand-green">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-green" />
-                    <span>Scope: 10 Mega Watt AC, DC & MMS Work</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-black text-brand-navy mb-6">Ongoing Projects</h3>
-              <div className="space-y-8">
-                {/* MAHAGENCO Ongoing */}
-                <div className="glass-card p-8 group">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-[9px] font-black uppercase tracking-widest mb-6">
-                    <Rocket size={12} />
-                    <span>In Progress</span>
-                  </div>
-                  <h4 className="text-xl font-black text-brand-navy mb-2">MAHAGENCO 250 MW Project</h4>
-                  <p className="text-xs font-bold text-brand-navy/40 mb-4 uppercase tracking-widest">Dondaicha, Maharashtra</p>
-                  <p className="text-sm text-brand-navy/60 leading-relaxed mb-4">DC/AC Electrification, MMS and Earthing Work</p>
-                  <div className="flex items-center gap-2 text-xs font-bold text-brand-blue">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
-                    <span>Scope: 10 Mega Watt AC, DC, MMS & Earthing Work</span>
-                  </div>
-                </div>
-
-                {/* POC Project */}
-                <div className="glass-card p-8 group">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-[9px] font-black uppercase tracking-widest mb-6">
-                    <Rocket size={12} />
-                    <span>POC/R&D</span>
-                  </div>
-                  <h4 className="text-xl font-black text-brand-navy mb-2">Solar AI Solution</h4>
-                  <p className="text-xs font-bold text-brand-navy/40 mb-4 uppercase tracking-widest">Research & Proof of Concept</p>
-                  <p className="text-sm text-brand-navy/60 leading-relaxed">Image Processing Based Solar Plant Maintenance Solution.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[
+            { src: '/media/project/photo1.jpg', alt: 'Project Site 1' },
+            { src: '/media/project/photo2.jpg', alt: 'Project Site 2' },
+            { src: '/media/project/photo3.jpg', alt: 'Project Site 3' },
+            { src: '/media/project/photo4.jpg', alt: 'Project Site 4' },
+          ].map((photo, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative overflow-hidden rounded-3xl aspect-square shadow-xl shadow-brand-navy/10 hover:shadow-2xl hover:shadow-brand-green/20 transition-all"
+            >
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </motion.div>
+          ))}
         </div>
       </section>
 
