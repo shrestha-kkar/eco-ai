@@ -301,6 +301,7 @@ export default function App() {
             </motion.div>
           </div>
         </div>
+      </section>
 
       {/* Partners Section/Clients Section */}
       <section className="py-12 page-container border-b border-brand-navy/5">
