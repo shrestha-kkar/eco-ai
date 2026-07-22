@@ -134,7 +134,7 @@ export default function App() {
           <FeatureCard
             icon={<Zap size={28} />}
             title="Smarter Electrification"
-            desc="Comprehensive DC & AC work including substation integration, energy distribution, and advanced switchgear installation."
+            desc="Comprehensive DC & AC work including substation integration, energy storage, energy distribution, and advanced switchgear installation."
             delay={0.2}
           />
           <FeatureCard
@@ -319,47 +319,101 @@ export default function App() {
             title="Real-World Impact Sites"
             description="Our site teams operate across India, delivering high-stakes energy and traffic infrastructure."
           />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[
-            { src: '/media/project/photo1.jpg', alt: 'Project Site 1' },
-            { src: '/media/project/photo2.jpg', alt: 'Project Site 2' },
-            { src: '/media/project/photo3.jpg', alt: 'Project Site 3' },
-            { src: '/media/project/photo4.jpg', alt: 'Project Site 4' },
-          ].map((photo, index) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {[
+              { src: '/media/project/photo1.jpg', alt: 'Project Site 1' },
+              { src: '/media/project/photo2.jpg', alt: 'Project Site 2' },
+              { src: '/media/project/photo3.jpg', alt: 'Project Site 3' },
+              { src: '/media/project/photo4.jpg', alt: 'Project Site 4' },
+            ].map((photo, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative overflow-hidden rounded-2xl aspect-video shadow-lg shadow-brand-navy/10 hover:shadow-xl hover:shadow-brand-green/20 transition-all"
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
-              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-3xl aspect-square shadow-xl shadow-brand-navy/10 hover:shadow-2xl hover:shadow-brand-green/20 transition-all"
+              className="glass-card p-10 border-l-4 border-l-brand-blue"
             >
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <h4 className="text-sm font-black text-brand-navy/40 uppercase tracking-widest mb-3">Completed Projects</h4>
+              <p className="text-4xl md:text-5xl font-black text-brand-blue leading-tight">3+ <span className="text-lg text-brand-navy/60">Completed</span></p>
+              <p className="text-xs text-brand-navy/50 mt-4">Successfully delivered infrastructure projects</p>
             </motion.div>
-          ))}
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="glass-card p-10 border-l-4 border-l-brand-green"
+            >
+              <h4 className="text-sm font-black text-brand-navy/40 uppercase tracking-widest mb-3">Commissioned Projects</h4>
+              <p className="text-4xl md:text-5xl font-black text-brand-green leading-tight">35+ <span className="text-lg text-brand-navy/60">MWh</span></p>
+              <p className="text-xs text-brand-navy/50 mt-4">Clean energy capacity deployed across India</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="glass-card p-10 border-l-4 border-l-brand-blue"
+            >
+              <h4 className="text-sm font-black text-brand-navy/40 uppercase tracking-widest mb-3">Presence In</h4>
+              <p className="text-4xl md:text-5xl font-black text-brand-blue leading-tight">2+ <span className="text-lg text-brand-navy/60">States</span></p>
+              <p className="text-xs text-brand-navy/50 mt-4">Active operations across multiple Indian states</p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Partners Section/Clients Section (Very Minimal) */}
-      <section className="py-24 page-container border-b border-brand-navy/5">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          <div className="text-center md:text-left">
-            <h4 className="text-[10px] font-black text-brand-navy uppercase tracking-[0.4em] mb-2 opacity-40">Trusted by</h4>
-            <p className="text-2xl font-black text-brand-navy/80">Leading Enterprises</p>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
-            <div className="text-center">
-              <p className="text-2xl font-black uppercase tracking-[0.2em]">TATA Power</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-black uppercase tracking-[0.1em]">SAHARA</p>
-            </div>
+      {/* Partners Section/Clients Section */}
+      <section className="py-12 page-container border-b border-brand-navy/5">
+        <div className="flex flex-col items-center gap-8">
+          <h4 className="text-[10px] font-black text-brand-navy uppercase tracking-[0.4em] opacity-40">Trusted by</h4>
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center justify-center"
+            >
+              <img
+                src="/media/client-logos/logo1.png"
+                alt="Client Logo 1"
+                className="h-20 w-auto object-contain"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="flex items-center justify-center"
+            >
+              <img
+                src="/media/client-logos/logo2.png"
+                alt="Client Logo 2"
+                className="h-20 w-auto object-contain"
+              />
+            </motion.div>
           </div>
         </div>
       </section>

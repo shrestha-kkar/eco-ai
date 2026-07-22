@@ -118,13 +118,13 @@ export default function Layout() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur-xl border-b border-brand-navy/5 py-4 px-6 md:px-12">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur-xl border-b border-brand-navy/5 px-4 md:px-8">
         <div className="max-w-[1400px] mx-auto flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-4 group cursor-pointer">
-            <img src={logo} alt="Eco AI Logo" className="w-10 h-10 object-contain rounded-xl shadow-xl shadow-brand-navy/10" />
+          <Link to="/" className="flex items-center gap-3 group cursor-pointer">
+            <img src={logo} alt="Eco AI Logo" className="w-20 h-20 object-contain" />
             <div>
-              <h1 className="text-lg font-black text-brand-navy leading-none tracking-tight">ECO-AI</h1>
-              <span className="text-[9px] font-bold text-brand-green uppercase tracking-[0.3em]">Energy Solutions</span>
+              <h1 className="text-2xl font-black text-brand-navy leading-none tracking-tight">ECO-AI</h1>
+              <span className="text-[10px] font-bold text-brand-green uppercase tracking-[0.3em]">Energy Solutions</span>
             </div>
           </Link>
 
